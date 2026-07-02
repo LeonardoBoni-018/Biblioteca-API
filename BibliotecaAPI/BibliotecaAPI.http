@@ -1,0 +1,20 @@
+@host = http://localhost:5116
+
+### Registrar um novo usuário
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "João Silva",
+    "email": "joao@email.com",
+    "password": "123456"
+}
+
+### Fazer login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "joao@email.com",
+    "password": "123456"
+}
