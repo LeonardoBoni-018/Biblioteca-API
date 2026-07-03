@@ -4,6 +4,6 @@
     {
         public string Name { get; set; }
         public string Nacionality { get; set; }
-        public DateOnly BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
     }
 }

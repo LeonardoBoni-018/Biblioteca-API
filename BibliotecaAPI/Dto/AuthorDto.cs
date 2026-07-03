@@ -2,9 +2,10 @@
 {
     public class AuthorDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Nationality { get; set; } 
-        public DateOnly BirthDate { get; set; }
+        public int BookCount { get; set; }
+        public DateTime? BirthDate { get; set; }
     }
 }
