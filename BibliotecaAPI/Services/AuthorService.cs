@@ -42,13 +42,10 @@ namespace BibliotecaAPI.Services
             {
                 Id = author.Id,
                 Name = author.Name,
-                Nationality = author.National,
+                Nationality = author.Nationality,
                 BookCount = author.Books.Count,
                 BirthDate = author.BirthDate
             };
-
-
-        
     }
 
         public async Task<AuthorDto> CreateAsync(CreateAuthorDto dto)
