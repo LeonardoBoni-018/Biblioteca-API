@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaAPI.Dto
 {
-    public class RentDto
+    public class ToRentDto
     {
         public int Id { get; set; }
 
