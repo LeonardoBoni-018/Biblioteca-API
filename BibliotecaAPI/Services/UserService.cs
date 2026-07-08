@@ -45,7 +45,7 @@ namespace BibliotecaAPI.Services
             {
                 Name = createUserDto.Name,
                 Email = createUserDto.Email,
-                PasswordHash = createUserDto.Password,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(createUserDto.Password),
                 Role = createUserDto.Role
             };
             _context.Users.Add(user);
@@ -67,7 +67,7 @@ namespace BibliotecaAPI.Services
             await _context.Users.Where(u => u.Id == id).ExecuteUpdateAsync(u => u
                  .SetProperty(u => u.Name, createUserDto.Name)
                  .SetProperty(u => u.Email, createUserDto.Email)
-                 .SetProperty(u => u.PasswordHash, createUserDto.Password)
+                 .SetProperty(u => u.PasswordHash, BCrypt.Net.BCrypt.HashPassword(createUserDto.Password))
                  .SetProperty(u => u.Role, createUserDto.Role));
             return new UserDto
             {
