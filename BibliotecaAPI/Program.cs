@@ -34,7 +34,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IUserService, UserService>();
-//builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IBookService, BookService>();
 //builder.Services.AddScoped<IRentalService, RentalService>();
 
 var app = builder.Build();
