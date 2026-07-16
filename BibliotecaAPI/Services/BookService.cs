@@ -79,7 +79,7 @@ namespace BibliotecaAPI.Services
             };
         }
 
-        public async Task<BookDto> UpdateAsync(int bookId, CreateBookDto bookDto) {
+        public async Task<BookDto?> UpdateAsync(int bookId, CreateBookDto bookDto) {
             var book = await _context.Books.Include
                (b => b.Author).FirstOrDefaultAsync(b => b.Id == bookId);
 
