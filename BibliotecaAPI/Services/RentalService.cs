@@ -56,7 +56,7 @@ namespace BibliotecaAPI.Services
         public async Task<RentDto> RentBookAsync(ToRentDto dto)
         {
             var book = await _context.Books.FindAsync(dto.BookId);
-            if (book is null || !book.isRented)
+            if (book is null || book.isRented)
                 throw new Exception("Book not available for rent.");
 
             book.isRented = true;
