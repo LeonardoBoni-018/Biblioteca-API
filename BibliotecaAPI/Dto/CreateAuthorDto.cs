@@ -2,8 +2,8 @@
 {
     public class CreateAuthorDto
     {
-        public string Name { get; set; }
-        public string Nacionality { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string? Nacionality { get; set; }
         public DateTime? BirthDate { get; set; }
     }
 }

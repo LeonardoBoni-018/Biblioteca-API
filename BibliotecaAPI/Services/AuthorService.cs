@@ -30,13 +30,7 @@ namespace BibliotecaAPI.Services
         {
             var author = await _context.Authors.Include(a => a.Books).FirstOrDefaultAsync(a => a.Id == id);
 
-            if(author == null)
-            {
-                return null;
-            }
-
-            _context.Authors.Add(author);
-            await _context.SaveChangesAsync();
+            if (author is null) return null;
 
             return new AuthorDto
             {
@@ -46,7 +40,7 @@ namespace BibliotecaAPI.Services
                 BookCount = author.Books.Count,
                 BirthDate = author.BirthDate
             };
-    }
+        }
 
         public async Task<AuthorDto> CreateAsync(CreateAuthorDto dto)
         {
@@ -70,16 +64,13 @@ namespace BibliotecaAPI.Services
             };
         }
 
-        public async Task<AuthorDto> UpdateAsync(int id, CreateAuthorDto dto)
+        public async Task<AuthorDto?> UpdateAsync(int id, CreateAuthorDto dto)
         {
             var author = await _context.Authors.FindAsync(id);
-            if (author == null)
-            {
-                return null;
-            }
+            if (author is null) return null;
 
             author.Name = dto.Name;
-            author.Name = dto.Nacionality;
+            author.Nationality = dto.Nacionality;
             author.BirthDate = dto.BirthDate;
 
             await _context.SaveChangesAsync();
